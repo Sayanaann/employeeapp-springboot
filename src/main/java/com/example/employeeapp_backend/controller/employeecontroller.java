@@ -33,4 +33,9 @@ public class employeecontroller {
         return "View an employee";
 
     }
+    @GetMapping("/delete")
+    public String Deletepage(){
+        return "Delete an employee";
+
+    }
 }
