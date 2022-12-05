@@ -28,4 +28,9 @@ public class employeecontroller {
         return "Edit an employee";
 
     }
+    @GetMapping("/view")
+    public String Viewpage(){
+        return "View an employee";
+
+    }
 }
