@@ -1,6 +1,9 @@
 package com.example.employeeapp_backend.controller;
 
+import com.example.employeeapp_backend.model.Employee;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -9,33 +12,22 @@ import org.springframework.web.bind.annotation.RestController;
 public class employeecontroller {
 
     @GetMapping("/")
-    public String Welcomepage(){
-        return "welcome to my website";
+    public String Welcomepage() {
+        return "welcome to Employee app";
 
     }
-    @GetMapping("/add")
-    public String Addpage(){
-        return "Add the employee";
 
-    }
-    @GetMapping("/search")
-    public String Searchpage(){
-        return "Search an employee";
-
-    }
-    @GetMapping("/edit")
-    public String Editpage(){
-        return "Edit an employee";
-
-    }
-    @GetMapping("/view")
-    public String Viewpage(){
-        return "View an employee";
-
-    }
-    @GetMapping("/delete")
-    public String Deletepage(){
-        return "Delete an employee";
+    @PostMapping(path = "/add", consumes = "application/json", produces = "application/json")
+    public String Addemployee(@RequestBody Employee e) {
+        System.out.println(e.getEmpname());
+        System.out.println(e.getEmpcode());
+        System.out.println(e.getDesignation());
+        System.out.println(e.getSalary());
+        System.out.println(e.getCompanyname());
+        System.out.println(e.getMobileno());
+        System.out.println(e.getUsername());
+        System.out.println(e.getPassword());
+        return "Employee added successfully";
 
     }
 }
