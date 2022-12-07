@@ -20,6 +20,7 @@ private Employeedao dao;
         return "welcome to Employee app";
 
     }
+    @CrossOrigin(origins = "*")
 
     @PostMapping(path = "/add", consumes = "application/json", produces = "application/json")
     public String Addemployee(@RequestBody Employee e) {
@@ -38,6 +39,17 @@ private Employeedao dao;
     @CrossOrigin(origins = "*")
       @GetMapping("/viewall")
     public List<Employee> viewall() {
-          return (List<Employee>) dao.findAll();
+
+    return (List<Employee>) dao.findAll();
       }
+
+
+   @CrossOrigin(origins = "*")
+
+    @PostMapping(path = "/search", consumes = "application/json", produces = "application/json")
+    public List<Employee> Searchemployee(@RequestBody Employee e) {
+        String empcode = String.valueOf(e.getEmpcode());
+        System.out.println(empcode);
+        return (List<Employee>) dao.Searchemployee(e.getEmpcode());
+    }
 }
